@@ -1,0 +1,258 @@
+.div {
+  height: calc(100vh);
+  scroll-snap-align: start;
+  color: #DDD;
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.sec-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.presentation {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-end;
+  font-weight: 520;
+}
+
+.sec-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, .8);
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+}
+
+.sec-header>h1 {
+  font-size: 6rem;
+  text-align: center;
+}
+
+#cursor {
+  animation: blink 1s infinite;
+}
+
+img {
+  height: 16em;
+  opacity: 0.5;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+  transition: opacity 0.5s, transform 1s;
+  transform: translate(-4em);
+}
+
+img:hover {
+  opacity: .9;
+  transform: translate(-2em);
+}
+
+.half-header {
+  flex-basis: 40%;
+}
+
+.half-header-r {
+  flex-basis: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+h2 {
+  font-size: 2.5em;
+  color: #888;
+}
+
+.avatar {
+  text-align: right;
+}
+
+
+p {
+  text-align: left;
+  font-size: 2.5em;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+span {
+  color: #fff;
+  font-weight: bold;
+}
+
+.line1 {
+  color: #9cd9f0;
+  animation: type 0.5s 1s steps(20, end) forwards;
+}
+
+.cursor1 {
+  animation: blink 1s 2s 2 forwards;
+}
+
+.line2 {
+  color: #9cd9f0;
+  animation: type 0.5s 4.25s steps(20, end) forwards;
+}
+
+.cursor2 {
+  animation: blink 1s 5.25s 2 forwards;
+}
+
+.line3 {
+  color: #9cd9f0;
+  animation: type 0.5s 7.5s steps(20, end) forwards;
+}
+
+.cursor3 {
+  animation: blink 1s 8.5s 2 forwards;
+}
+
+.line4 {
+  color: #9cd9f0;
+  animation: type 0.5s 10.75s steps(20, end) forwards;
+}
+
+.cursor4 {
+  animation: blink 1s 8.5s infinite;
+}
+
+@keyframes type {
+  to {
+    width: 17em;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  49% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+
+  /* For tablets: */
+  .col-s-1 {
+    width: 8.33%;
+  }
+
+  .col-s-2 {
+    width: 16.66%;
+  }
+
+  .col-s-3 {
+    width: 25%;
+  }
+
+  .col-s-4 {
+    width: 33.33%;
+  }
+
+  .col-s-5 {
+    width: 41.66%;
+  }
+
+  .col-s-6 {
+    width: 50%;
+  }
+
+  .col-s-7 {
+    width: 58.33%;
+  }
+
+  .col-s-8 {
+    width: 66.66%;
+  }
+
+  .col-s-9 {
+    width: 75%;
+  }
+
+  .col-s-10 {
+    width: 83.33%;
+  }
+
+  .col-s-11 {
+    width: 91.66%;
+  }
+
+  .col-s-12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%;
+  }
+
+  .col-2 {
+    width: 16.66%;
+  }
+
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-4 {
+    width: 33.33%;
+  }
+
+  .col-5 {
+    width: 41.66%;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-7 {
+    width: 58.33%;
+  }
+
+  .col-8 {
+    width: 66.66%;
+  }
+
+  .col-9 {
+    width: 75%;
+  }
+
+  .col-10 {
+    width: 83.33%;
+  }
+
+  .col-11 {
+    width: 91.66%;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+}
