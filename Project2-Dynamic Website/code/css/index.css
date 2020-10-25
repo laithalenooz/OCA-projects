@@ -1,0 +1,115 @@
+body{
+  font-family: 'Righteous', cursive;
+  background: url(../images/bg1.jpg);
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+   background-color: #1f2833;
+   background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.footer{
+    margin-top: 50px;
+    position: fixed;
+    bottom: 0;
+    background-color:#1f2833;
+    width: 100%;
+    text-align: center;
+    color:#c5c6c7;
+    display: block;
+  }
+  .container{
+    margin: 3% auto auto auto;
+    padding: 2% 0 2% 0;
+      text-align: center;
+      margin-bottom: 100px;
+      font-family: 'Righteous', cursive;
+      color: #66fcf1;
+      background-color: #1f2833;
+      opacity:85% ;
+      border-radius: 50px;
+      width: 300px;
+      height: auto;
+  }
+  .input{
+  margin-bottom:10px;
+    border:3px solid #66fcf1;
+    background-color:#1f2833;
+    padding:9px;
+    border-radius:25px;
+    outline:none;
+    text-align:center;
+    transition-duration:.6s;
+    color: #66fcf1;
+  }
+#bt1{
+  border:3px solid #66fcf1;
+    background-color: #66fcf1;
+    outline:none;
+    border-radius:25px;
+    padding:8px 20px;
+    columns: #1f2833;;
+    transition-duration:.6s;
+}
+input:hover{
+    padding:9px 30px;
+    border:1px solid #66fcf1;
+}
+#bt1:hover{
+    padding:9px 30px;
+    border:1px solid #66fcf1;
+}
+input:checked +.toggle { 
+
+}
+@media (max-width: 667px) {
+  .container{
+    margin-top: 250px;
+  }
+}
+#bt1 {
+  border: 3px solid #66fcf1;
+  background-color: #66fcf1;
+  outline: none;
+  border-radius: 25px;
+  padding: 8px 20px;
+  columns: #1f2833;
+  transition-duration: 0.6s;
+}
+#bt2 {
+  border: 3px solid #66fcf1;
+  background-color: #66fcf1;
+  outline: none;
+  border-radius: 25px;
+  padding: 8px 20px;
+  columns: #1f2833;
+  transition-duration: 0.6s;
+}
+#bt3 {
+  border: 3px solid #66fcf1;
+  background-color: #66fcf1;
+  outline: none;
+  border-radius: 25px;
+  padding: 8px 20px;
+  columns: #1f2833;
+  transition-duration: 0.6s;
+}
+
+input:hover {
+  padding: 9px 30px;
+  border: 1px solid #66fcf1;
+}
+#bt1:hover {
+  padding: 9px 30px;
+  border: 1px solid #66fcf1;
+}
+#bt2:hover {
+  padding: 9px 30px;
+  border: 1px solid #66fcf1;
+}
+#bt3:hover {
+  padding: 9px 30px;
+  border: 1px solid #66fcf1;
+}

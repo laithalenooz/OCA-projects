@@ -1,0 +1,252 @@
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family:'Righteous', cursive;
+
+
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1f2833;
+    background: url(../images/bg1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+nav {
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    width: 470px;
+    background-color: #66fcf1;
+    padding: 24px 0px;
+    height: 100vh;
+    clip-path: circle(10% at 10% 5%);
+}
+
+nav ul:hover {
+clip-path: circle(100% at -45% 10%);
+}
+
+nav ul .menu {
+    width: 48px;
+    height: 40px;
+    position: relative;
+    margin-bottom: 24px;
+    margin-left: 24px;
+
+}
+
+nav ul .menu span {
+    position: absolute;
+    left: 0;
+    background-color:#c5c6c7;
+    padding: 2px;
+    width: 48px;
+    border-radius: 4px;
+}
+
+nav .menu span:nth-child(1) {
+    top: 0px;
+
+}
+nav .menu span:nth-child(2) {
+    top:18px;
+    width: 28px;
+
+}
+nav .menu span:nth-child(3) {
+    bottom: 0px;
+    width: 40px; 
+}
+
+nav ul.active .menu span:nth-child(1) {
+top: 0px;
+left: 23px;
+width: 4px;
+height: 40px;
+}
+
+nav ul.active .menu span:nth-child(2) {
+width: 40px;
+left: 5px;
+}
+
+nav ul.active .menu span:nth-child(3) {
+padding: 0px;
+width: 0px;
+}
+
+nav ul.active .menu {
+    transform: rotateZ(45deg);
+}
+
+nav ul li {
+    padding: 24px 48px;
+    color:#1f2833;
+    text-transform: uppercase;
+
+
+}
+
+nav ul li:hover {
+    background-color: #cfc5c7;
+    padding-left: 56px;
+}
+
+h1 {
+    margin-bottom:500px ;
+    color: #c5c6c7;
+}
+.todo-container {
+    width: 40%;
+    position: fixed;
+}
+.input {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+}
+#addnew {
+    opacity: 95% !important ;
+}
+.input .form-control {
+    background-color:black ;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+    width: 90%;
+    padding:0px 20px;
+    font-size: 16px;
+    color:#c5c6c7;
+    box-shadow: -6px -6px 10px rgb(59, 35, 35, 0.03),
+                -6px -6px 10px rgb(10, 8, 10, 0.8),
+               inset -6px -6px 10px rgb(255,255, 255, 0.05),
+               inset  -6px -6px 10px rgb(12, 8, 12, 0.8);
+}
+.input .form-control:focus {
+    outline: none;
+
+}
+.add .material-icons {
+    background: #66fcf1;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #161117;
+    border-radius: 50%;
+    margin-left:15px;
+    cursor: pointer;
+    font-size: 30px;
+
+}
+.delete_forever .material-icons {
+    background: #66fcf1;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #161117;
+    border-radius: 50%;
+    margin-left:15px;
+    cursor: pointer;
+    font-size: 30px; 
+}
+.cloud_download .material-icons {
+    background: #66fcf1;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #161117;
+    border-radius: 50%;
+    margin-left:15px;
+    cursor: pointer;
+    font-size: 30px; 
+}
+.todo-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:15px;
+    color:#1f2833;
+    background: #66fcf1;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top:15px;
+    box-shadow: 0px 5px 10px rgb(0,0,0,0.55);
+}
+.left-cont input {
+display: none;
+cursor: pointer;
+}
+.left-cont label {
+    position: relative;
+    cursor: pointer;
+}
+.left-cont label:before {
+content:'' ;
+padding:11px;
+display: inline-block;
+position: relative;
+margin-right: 8px;
+vertical-align: middle;
+background:#1f2833;
+border-radius: 3px;
+}
+.left-cont input:checked + label:before {
+    background:#32CD32	;
+
+}
+.left-cont input:checked + label:after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    top: 4px;
+    left: 8px;
+    width: 5px;
+    height: 12px;
+    border: solid #221525;
+    border-width: 0px 2px 2px 0px;
+    transform: rotate(45deg);
+    
+}
+.remove {
+    color: #ff0047;
+    cursor: pointer;
+    line-height: 1;
+    transform: translateX(48px);
+    transition: .5s;
+}
+.remove.active {
+    transform:translateX(0px);
+    transition: .5s;
+}
+.footer{
+    margin-top: 50px;
+    position: fixed;
+    bottom: 0;
+    background-color:#1f2833;
+    width: 100%;
+    text-align: center;
+    color:#c5c6c7;
+    display: block;
+  }
+  a{
+      text-decoration: none;
+  }

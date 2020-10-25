@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TO-DOLIST,CALCULATOR,SIGNUP,About">
+  <meta http-equiv="refresh" content="120">
+  <meta name="author" content="LSL">
+  <meta name="keywords" content="HTML, CSS, JavaScript, Bootstrap, Ubuntu, linux, Web Developer,">
+  <meta property="og:description" content="Full-stack web developer,Back-end Developer, Front-end Developer">
+  <meta name=”robots” content=”index, follow”>
+  <title>About</title>
+  <link rel="stylesheet" type="text/css" href="css/homepage.css">
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  </head>
+  <form name="form">
+    <select name="font_family" id="font_family" onchange = "changeFontStyle (this)">
+        <option value="Arial" selected>Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+    </select>
+    </form>
+  <body id="body">
+    <input type="color" id="color">
+    <button id="button1" onclick="changeColor()">Change Color</button>
+
+    <nav>
+      <ul>
+        <div class="menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <a href="homepage.html">
+          <li>About</li>
+        </a>
+        <a href="index.html">
+          <li> Sign Up</li>
+        </a>
+        <a href="To-do.html">
+          <li>To do List</li>
+        </a>
+        <a href="calculator.html">
+          <li> Calculator</li>
+        </a>
+      </ul>
+    </nav>
+    <div class="container">
+      <span class="text1">Welcome to</span>
+      <span class="text2">SLS</span>
+    </div>
+    <p class="line anim-typewriter">In our lovely website you gonna make a To do List and do some Calculations ,
+      Just Don't forget to sign up first to keep in touch with you</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      function changeColor() {
+        var color = document.getElementById("color").value;
+        document.getElementById("body").style.backgroundColor = color;
+      }
+    </script>
+    <footer class="footer">
+      <div>&copy Copyright 2020</div>
+      <div>Powered by <span style="color :#66fcf1; font-weight: bold; font-size: 25PX;">SLS</span></div>
+    </footer>
+  </body>
+
+</html>

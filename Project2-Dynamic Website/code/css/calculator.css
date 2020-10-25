@@ -1,0 +1,70 @@
+body {
+  font-family: "Righteous", cursive;
+  background-image: url(../images/bg1.jpg);
+  height: 100wh;
+  width: 100vh;
+  min-width: 100%;
+  background-repeat: no-repeat center center/cover;
+}
+
+.wrapper {
+  opacity: 85%;
+  border-radius: 25px;
+  width: 40%;
+  position: relative;
+  margin: 5% auto 5% auto;
+  background: #1f2833;
+  padding: 15px;
+  color: #c5c6c7;
+  text-align: center;
+  align-items: center;
+}
+
+.wrapper h1 {
+  text-transform: uppercase;
+  font-size: 1rem;
+  padding-top: 1.5rem;
+  margin-bottom: 10%;
+}
+
+input[type="text"] {
+  width: 40%;
+  height: 10%;
+  padding: 5px;
+  border: 1px solid black;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button {
+  background: #66fcf1;
+  border: none;
+  color: rgb(99, 76, 76);
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+input[type="radio"] {
+  width: 10px;
+  height: 20px;
+}
+
+b {
+  font-size: 1rempx;
+}
+.footer {
+  font-family: "Righteous", cursive;
+  margin-top: 50px;
+  position: fixed;
+  bottom: 0;
+  background-color: #1f2833;
+  width: 100%;
+  text-align: center;
+  color: #c5c6c7;
+  display: block;
+}
