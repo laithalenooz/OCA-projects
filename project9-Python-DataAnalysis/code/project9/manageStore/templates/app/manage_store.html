@@ -1,0 +1,185 @@
+{% extends 'app/datatablescript.html' %}
+{% block datatable %}
+    <!-- Breadcrumb -->
+    <nav class="hk-breadcrumb" aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-light bg-transparent">
+            <li class="breadcrumb-item"><a href="#">Information</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Manage</li>
+        </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Title -->
+        <div class="hk-pg-header">
+            <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i
+                    data-feather="database"></i></span></span>Manage</h4>
+        </div>
+        <!-- /Title -->
+        <!-- Row -->
+        <div class="row">
+            <div class="col-xl-12">
+                <!-- ============================================================== -->
+                <!-- Start Form  -->
+                <!-- ============================================================== -->
+                <section class="hk-sec-wrapper">
+                    <h5 class="hk-sec-title">File browser</h5>
+                    <p class="mb-40">A custom file browser with change and remove function.</p>
+                    <div class="row">
+                        <div class="col-sm">
+                            <form
+                                    action="{% url 'upload' %}"
+                                    method="POST"
+                                    id="basicform"
+                                    enctype="multipart/form-data"
+                            >
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                        <div class="form-control text-truncate" data-trigger="fileinput"><i
+                                                class="glyphicon glyphicon-file fileinput-exists"></i> <span
+                                                class="fileinput-filename"></span></div>
+                                        <span class="input-group-append">
+                                                    <span class=" btn btn-primary btn-file"><span class="fileinput-new">Select file</span><span
+                                                            class="fileinput-exists">Change</span>
+                                                    <input type="file" name="myfile">
+                                                    </span>
+                                                    <a href="#" class="btn btn-secondary fileinput-exists"
+                                                       data-dismiss="fileinput">Remove</a>
+                                                    </span>
+                                        <select class="form-control select2" name="data_source">
+                                            <option>Select</option>
+                                            {% for data_source in read_data_source %}
+                                                <option value="{{ data_source.id }}">{{ data_source.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- End Form  -->
+                <!-- ============================================================== -->
+                {#            ChartJS               #}
+
+                <canvas id="myChart" width="200" height="75"></canvas>
+
+                {#            End ChartJS           #}
+                <section class="hk-sec-wrapper">
+                    <h5 class="hk-sec-title">Data Table</h5>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="table-wrap">
+                                <table id="datable_1" class="table table-hover w-100 display pb-30">
+                                    <thead>
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <th>Gender</th>
+                                        <th>Country</th>
+                                        <th>Product Name</th>
+                                        <th>Quantity</th>
+                                        <th>Profit</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% if Data %} {% for data in Data %}
+                                        <tr>
+                                            <td>{{ data.customer_name }}</td>
+                                            <td>{{ data.gender }}</td>
+                                            <td>{{ data.country }}/{{ data.city }}</td>
+                                            <td>{{ data.product_name }}</td>
+                                            <td>{{ data.quantity }}</td>
+                                            <td>{{ data.profit }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                        <!-- end if -->
+                                    {% endif %}
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th rowspan="1" colspan="1">Customer Name</th>
+                                        <th rowspan="1" colspan="1">Gender</th>
+                                        <th rowspan="1" colspan="1">Country/City</th>
+                                        <th rowspan="1" colspan="1">Product Name</th>
+                                        <th rowspan="1" colspan="1">Quantity</th>
+                                        <th rowspan="1" colspan="1">Profit</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- /Row -->
+
+        <!-- Footer -->
+        <div class="hk-footer-wrap container">
+            <footer class="footer">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <p class="d-inline-block">Follow us</p>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span
+                                class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span
+                                class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
+                        <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span
+                                class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- /Footer -->
+    </div>
+    <!-- /Main Content -->
+
+    <script>
+        let ctx = document.getElementById('myChart').getContext('2d');
+        let myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Profit', 'Sales', 'M', 'F'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [{{ profit }}, {{ sales }}, {{Male}}, {{Female}}],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+{% endblock %}

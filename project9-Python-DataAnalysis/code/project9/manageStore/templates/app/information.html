@@ -1,0 +1,86 @@
+{% extends 'app/index.html' %}
+{% block body %}
+    <!-- Main Content -->
+    <div class="hk-pg-wrapper">
+        <!-- Container -->
+        <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
+            <!-- Breadcrumb -->
+            <nav class="hk-breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-light bg-transparent">
+                    <li class="breadcrumb-item"><a href="#">Information</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ data_source_name }}</li>
+                </ol>
+            </nav>
+            <!-- /Breadcrumb -->
+
+            <!-- Container -->
+            <div class="container">
+
+                <!-- Title -->
+                <div class="hk-pg-header">
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i
+                            data-feather="database"></i></span></span>{{ data_source_name }}</h4>
+                </div>
+                <!-- /Title -->
+
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <section class="hk-sec-wrapper">
+                            <h5 class="hk-sec-title">Data Table</h5>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="table-wrap">
+                                        <table id="datable_1" class="table table-hover w-100 display pb-30">
+                                            <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Data Source Name</th>
+                                                <th>File Name</th>
+                                                <th>Execution Time</th>
+                                                <th>Number of Records</th>
+                                                <th>Time Created</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for manageStores in manageStore %}
+                                                {% for Id in manageStoreId %}
+                                                    {% if manageStores.id == Id.id %}
+                                                        <tr>
+                                                            <td>{{ manageStores.id }}</td>
+                                                            <td>{{ manageStores.data_source_name }}</td>
+                                                            <td>{{ manageStores.file_name }}</td>
+                                                            <td>{{ manageStores.execution_time }}</td>
+                                                            <td>{{ manageStores.number_of_records }}</td>
+                                                            <td>{{ manageStores.created }}</td>
+                                                        </tr>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endfor %}
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Data Source Name</th>
+                                                <th>File Name</th>
+                                                <th>Execution Time</th>
+                                                <th>Number of Records</th>
+                                                <th>Time Created</th>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- /Row -->
+
+            </div>
+            <!-- /Container -->
+        </div>
+        <!-- /Main Content -->
+    </div>
+
+{% endblock %}

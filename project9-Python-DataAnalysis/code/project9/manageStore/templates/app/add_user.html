@@ -1,0 +1,119 @@
+{% extends 'app/datatablescript.html' %}
+{% block datatable %}
+    <!-- Breadcrumb -->
+    <nav class="hk-breadcrumb" aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-light bg-transparent">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Add a User</li>
+        </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Title -->
+        <div class="hk-pg-header">
+            <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><i
+                    data-feather="database"></i></span></span>Add a User</h4>
+        </div>
+        <!-- /Title -->
+        <!-- Row -->
+        <div class="row">
+            <div class="col-xl-12">
+                <!-- ============================================================== -->
+                <!-- end pageheader  -->
+                <!-- ============================================================== -->
+                <div class="ecommerce-widget">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Register User</h5>
+                                <div class="card-body">
+                                    <form method="POST" action="">
+                                        {% if form.errors %}
+                                            <div class="alert alert-danger mt-4">{{ form.errors }}</div>
+                                        {% endif %}
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <label>Username</label>
+                                            {{ form.username }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail">Email</label>
+                                            {{ form.email }}
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" name="password1" class="form-control mt-15"
+                                                   placeholder="Enter Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword">Password Confirmation</label>
+                                            <input type="password" name="password2" class="form-control mt-15"
+                                                   placeholder="Confirm Password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <section class="hk-sec-wrapper">
+                                <h5 class="hk-sec-title">Users</h5>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <div class="table-wrap">
+                                            <table id="datable_1" class="table table-hover w-100 display pb-30">
+                                                <thead>
+                                                <tr>
+                                                    <th>Admin ID</th>
+                                                    <th>Admin Name</th>
+                                                    <th>Admin Email</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for user in users %}
+                                                    <tr>
+                                                        <td>{{ user.id }}</td>
+                                                        <td>{{ user.username }}</td>
+                                                        <td>{{ user.email }}</td>
+
+                                                        <td>
+                                                            <a href="/edit/{{ user.id }}"
+                                                            ><span class="btn btn-primary p-1" style="color: white"
+                                                            >Edit</span
+                                                            ></a
+                                                            >
+                                                            <a href="/delete/{{ user.id }}"
+                                                            ><span class="btn btn-danger p-1" style="color: white"
+                                                            >Delete</span
+                                                            ></a
+                                                            >
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Row -->
+
+                <!-- Footer -->
+                <div class="hk-footer-wrap container">
+                    <footer class="footer">
+                    </footer>
+                </div>
+                <!-- /Footer -->
+            </div>
+            <!-- /Main Content -->
+        </div>
+    </div>
+
+{% endblock %}
